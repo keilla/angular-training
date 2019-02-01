@@ -40,7 +40,7 @@ describe('MemeGeneratorComponent', () => {
   describe('searchImage', () => {
     it('should call searchImage when keyword emit a value', () => {
       const spySearchImage = spyOn(component, 'searchImage');
-      component.searchForm.imageWord.emit('banana');
+      component.searchForm.keyword.emit('banana');
       expect(spySearchImage).toHaveBeenCalledWith('banana');
     });
 
