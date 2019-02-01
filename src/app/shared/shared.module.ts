@@ -12,6 +12,6 @@ import { ImageGalleryItemComponent } from './components/image-gallery/image-gall
     CommonModule,
     ReactiveFormsModule
   ],
-  exports: [SearchFormComponent, ButtonComponent, ImageGalleryComponent, ImageGalleryItemComponent]
+  exports: [SearchFormComponent, ButtonComponent, ImageGalleryComponent, ImageGalleryItemComponent, ReactiveFormsModule]
 })
 export class SharedModule { }
