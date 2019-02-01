@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormInputTextsComponent } from './form-input-texts.component';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('FormInputTextsComponent', () => {
   let component: FormInputTextsComponent;
@@ -8,7 +10,8 @@ describe('FormInputTextsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormInputTextsComponent ]
+      declarations: [ FormInputTextsComponent ],
+      imports: [SharedModule]
     })
     .compileComponents();
   }));
