@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { of } from 'rxjs';
@@ -44,16 +44,18 @@ describe('MemeGeneratorComponent', () => {
       expect(spySearchImage).toHaveBeenCalledWith('banana');
     });
 
-    it('should call getImages', () => {
+    it('should call getImages', (done: DoneFn) => {
       const imageResponse = [
         new Image({ imageID: 1, imageUrl: 'urlA', displayName: 'nameA' })
       ];
-      const spyGetImages = spyOn(imageService, 'getImages').and.returnValue(
+      spyOn(imageService, 'getImages').and.returnValue(
         of(imageResponse)
       );
       component.searchImage('nameA');
-      expect(spyGetImages).toHaveBeenCalled();
-      expect(component.images).toEqual(imageResponse);
+      component.images.subscribe((response) => {
+        expect(response).toEqual(imageResponse);
+        done();
+      });
     });
   });
 
